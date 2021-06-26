@@ -6,8 +6,8 @@ static int arr[]= {3,2,1,4,5,6,7,16,15,14,13,12,11,10,8,9};
 
 void main()
 {
-    int i,ilen;
-    AVLTree root=NULL;
+    int i, ilen;
+    AVLTree root = NULL;
 
     printf("== 高度: %d\n", avltree_height(root));
     printf("== 依次添加: ");

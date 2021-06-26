@@ -348,10 +348,10 @@ void print_avltree(AVLTree tree, TYPE key, int direction) {
         if(direction == 0) {
             printf("%2d is root\n", key);
         } else {
-            printf("%2d is %2d's %6s child\n", key, tree->key, direction == 1 ? "right" : "left");
+            printf("%2d is %2d's %6s child\n", tree->key, key, direction == 1 ? "right" : "left");
         }
 
         print_avltree(tree->left, tree->key, -1);
-        print_avltree(tree->right, tree->key, -1);
+        print_avltree(tree->right, tree->key, 1);
     }
 }
