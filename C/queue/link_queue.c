@@ -5,7 +5,7 @@
  * 用简单向链表实现队列,只能存储int类型数据
  */
 
-// 单向链表节点
+// 单向链表结点
 struct node {
     int val;
     struct node *next;
@@ -14,7 +14,7 @@ struct node {
 // 队列头
 static struct node *phead = NULL;
 
-// 创建节点,val为节点值
+// 创建结点,val为结点值
 static struct node* create_node(int val) {
     struct node *pnode = NULL;
     pnode = (struct node*)malloc(sizeof(struct node));

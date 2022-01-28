@@ -22,9 +22,9 @@ Node* bstree_search(BSTree x, Type Key);
 //(非递归实现)查找二叉树x中的键为key的结点
 Node* iterative_bstree_search(BSTree x, Type key);
 
-// 查找最小结点:返回tree为根节点的二叉树的最小结点
+// 查找最小结点:返回tree为根结点的二叉树的最小结点
 Node* bstree_minimum(BSTree tree);
-// 查找最大结点:返回tree为根节点的二叉树的最大结点
+// 查找最大结点:返回tree为根结点的二叉树的最大结点
 Node* bstree_maximum(BSTree tree);
 
 

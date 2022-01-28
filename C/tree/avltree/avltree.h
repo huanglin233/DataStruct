@@ -35,7 +35,7 @@ Node* iterative_avltree_search(AVLTree tree, TYPE key);
 // 查找最小结点：返回tree为根结点的avl树的最小结点
 Node* avltree_minimum(AVLTree tree);
 
-// 查找最大结点：返回tree为跟节点的avl树的最大节点
+// 查找最大结点：返回tree为跟结点的avl树的最大结点
 Node* avltree_maximum(AVLTree tree);
 
 // 将结点插入到AVL树中，返回根结点

@@ -18,12 +18,12 @@ void main(int argc, char *argv[]) {
     // 初始化双向链表的头部
     INIT_LIST_HEAD(&person_head.list);
 
-    // 添加节点
+    // 添加结点
     for (i = 0; i < 5; i++) {
         pperson = (struct person*) malloc(sizeof(struct person));
         pperson->age = 10 + i;
         sprintf(pperson->name, "%d", 10 + i);
-        // 把节点添加到链表的尾部
+        // 把结点添加到链表的尾部
         list_add_tail(&(pperson->list), &(person_head.list));
     };
 
@@ -34,7 +34,7 @@ void main(int argc, char *argv[]) {
         printf("name%-2s, age:%d\n", pperson->name, pperson->age);
     };
 
-    // 删除age为11的节点
+    // 删除age为11的结点
     list_for_each_safe(pos, next, &person_head.list) {
         pperson = list_value(pos, struct person, list);
         if(pperson->age == 11) {

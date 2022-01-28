@@ -1,24 +1,24 @@
 #ifndef _LIST_HEAD_H
 #define _LIST_HEAD_H
 
-// 双向链表节点
+// 双向链表结点
 struct list_head {
     struct list_head *next, *prev;
 };
 
-// 初始化节点,设置name节点的前继节点和后继节点指向name自己
+// 初始化结点,设置name结点的前继结点和后继结点指向name自己
 #define LIST_HEAD_INIT(name) {&(name), &(name)};
 
-// 定义表头节点,新建双向链表表头name,并设置初始化节点,设置name节点的前继节点和后继节点指向name自己
+// 定义表头结点,新建双向链表表头name,并设置初始化结点,设置name结点的前继结点和后继结点指向name自己
 #define LIST_HEAD(name) struct list_head name = LIST_HEAD_INT(name);
 
-// 初始化节点,将list节点的前继节点和后继节点都指向list自己
+// 初始化结点,将list结点的前继结点和后继结点都指向list自己
 static inline void INIT_LIST_HEAD(struct list_head *list) {
     list->next = list;
     list->prev = list;
 };
 
-// 添加节点,将value插入pre和next之间
+// 添加结点,将value插入pre和next之间
 static inline void _list_add(struct list_head *value, struct list_head *prev, struct list_head *next) {
     next->prev  = value;
     value->next = next;
@@ -26,34 +26,34 @@ static inline void _list_add(struct list_head *value, struct list_head *prev, st
     prev->next  = value;
 };
 
-// 添加节点,将value插入到head后面,及head的后继节点
+// 添加结点,将value插入到head后面,及head的后继结点
 static inline void list_add(struct list_head *value, struct list_head *head) {
     _list_add(value, head, head->next);
 };
 
-// 添加节点,将value插入到head之间,及head的前继节点
+// 添加结点,将value插入到head之间,及head的前继结点
 static inline void list_add_tail(struct list_head *value, struct list_head * head) {
     _list_add(value, head->prev, head);
 };
 
-// 从双向链表中删除prev和next之间的节点
+// 从双向链表中删除prev和next之间的结点
 static inline void _list_del(struct list_head *prev, struct list_head *next) {
     prev->next = next;
     next->prev = prev;
 };
 
-// 从链表中删除value节点
+// 从链表中删除value结点
 static inline void list_del(struct list_head *value) {
     _list_del(value->prev, value->next);
 };
 
-// 从链表中删除value节点,并让value节点的的前继和后继都指向自己
+// 从链表中删除value结点,并让value结点的的前继和后继都指向自己
 static inline void list_del_init(struct list_head *value) {
     _list_del(value->prev, value->next);
     INIT_LIST_HEAD(value);
 };
 
-// 用value节点取代oldvalue节点
+// 用value结点取代oldvalue结点
 static inline void list_replace(struct list_head *value, struct list_head *old_value) {
     value->next           = old_value->next;
     value->prev           = old_value->prev;

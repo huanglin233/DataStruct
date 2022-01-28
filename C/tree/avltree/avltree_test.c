@@ -36,7 +36,7 @@ void main()
 
 
     i = 8;
-    printf("\n== 删除根节点: %d", i);
+    printf("\n== 删除根结点: %d", i);
     root = avltree_delete(root, i);
 
     printf("\n== 高度: %d", avltree_height(root));

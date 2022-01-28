@@ -150,7 +150,7 @@ static Node* left_right_rotation(AVLTree tree) {
  * RL : 右左对应的情况(右双旋)
  * 返回值：旋转后的根结点
  */
-static Node* right_left_rotation(AVLTree tree) {
+static Node* right_left_rotation(AVLTree tree) {{
     tree->right = left_left_rotation(tree->right);
 
     return right_right_rotation(tree);
@@ -267,21 +267,21 @@ static Node* delete_node(AVLTree tree, Node* node){
         if((tree->left) && (tree->right)) {
             if(HEIGHT(tree->left) > HEIGHT(tree->right)) {
                 // 如果tree的左子树比右子树高；
-                // 则(01)找出tree的左子树中的最大节点
-                //   (02)将该最大节点的值赋值给tree。
-                //   (03)删除该最大节点。
-                // 这类似于用"tree的左子树中最大节点"做"tree"的替身；
-                // 采用这种方式的好处是：删除"tree的左子树中最大节点"之后，AVL树仍然是平衡的
+                // 则(01)找出tree的左子树中的最大结点
+                //   (02)将该最大结点的值赋值给tree。
+                //   (03)删除该最大结点。
+                // 这类似于用"tree的左子树中最大结点"做"tree"的替身；
+                // 采用这种方式的好处是：删除"tree的左子树中最大结点"之后，AVL树仍然是平衡的
                 Node* max  = avltree_maximum(tree->left);
                 tree->key  = max->key;
                 tree->left = delete_node(tree->left, max);
             } else {
                 // 如果tree的左子树不比右子树高(即它们相等，或右子树比左子树高1)
-                // 则(01)找出tree的右子树中的最小节点
-                //   (02)将该最小节点的值赋值给tree。
-                //   (03)删除该最小节点。
-                // 这类似于用"tree的右子树中最小节点"做"tree"的替身；
-                // 采用这种方式的好处是：删除"tree的右子树中最小节点"之后，AVL树仍然是平衡的。
+                // 则(01)找出tree的右子树中的最小结点
+                //   (02)将该最小结点的值赋值给tree。
+                //   (03)删除该最小结点。
+                // 这类似于用"tree的右子树中最小结点"做"tree"的替身；
+                // 采用这种方式的好处是：删除"tree的右子树中最小结点"之后，AVL树仍然是平衡的。
                 Node* min   = avltree_minimum(tree->right);
                 tree->key   = min->key;
                 tree->right = delete_node(tree->right, min);

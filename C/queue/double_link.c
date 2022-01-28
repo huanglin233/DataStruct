@@ -5,7 +5,7 @@
  * 双向链表头实现
  */
 
-// 双向链表节点
+// 双向链表结点
 typedef struct tag_node
 {
     struct tag_node *prev;
@@ -15,10 +15,10 @@ typedef struct tag_node
 
 // 表头.注意,表头不存放元素值
 static node *phead=NULL;
-// 节点个数
+// 结点个数
 static int  count=0;
 
-// 新键节点.成功返回节点指针,否则返回NULL
+// 新键结点.成功返回结点指针,否则返回NULL
 static node* create_node(void *pval) {
     node *pnode = NULL;
     pnode = (node *)malloc(sizeof(node));
@@ -26,9 +26,9 @@ static node* create_node(void *pval) {
         printf("create node error!\n");
         return NULL;
     }
-    // 默认的,pnode的前一个节点和后一个节点都指向它自身
+    // 默认的,pnode的前一个结点和后一个结点都指向它自身
     pnode->prev = pnode->next= pnode;
-    // 节点的值为pval
+    // 结点的值为pval
     pnode->p = pval;
 
     return pnode;
@@ -41,7 +41,7 @@ int create_dlink() {
     if(!phead) {
         return -1;
     }
-    // 设置节点个数为0
+    // 设置结点个数为0
     count = 0;
 
     return 0;
@@ -57,7 +57,7 @@ int dlink_size() {
     return count;
 };
 
-//获取双向链表中第index位置的节点
+//获取双向链表中第index位置的结点
 static node* get_node(int index){
     if(index < 0 || index >= count) {
         printf("%s failed! index out of bound", __func__);
@@ -86,16 +86,16 @@ static node* get_node(int index){
     return rnode;
 };
 
-// 获取第一个节点
+// 获取第一个结点
 static node* get_first_node() {
     return get_node(0);
 };
-// 获取最后一个节点
+// 获取最后一个结点
 static node* get_last_node() {
     return get_node(count - 1);
 };
 
-// 获取双向链表中第index位置的元素,成功返回节点值,否则返回-1
+// 获取双向链表中第index位置的元素,成功返回结点值,否则返回-1
 void* dlink_get(int index) {
     node *pindex = get_node(index);
     if(!pindex) {
@@ -123,13 +123,13 @@ int dlink_insert(int index, void* pval) {
         return dlink_insert_first(pval);
     };
 
-    // 获取插入的位置对的节点
+    // 获取插入的位置对的结点
     node *pindex = get_node(index);
     if(!pindex) {
         return -1;
     };
 
-    // 创建节点
+    // 创建结点
     node *pnode = create_node(pval);
     if(!pnode) {
         return -1;
@@ -139,7 +139,7 @@ int dlink_insert(int index, void* pval) {
     pnode->next        = pindex;
     pindex->prev->next = pnode;
     pindex->prev       = pnode;
-    // 节点个数+1
+    // 结点个数+1
     count++;
 
     return 0;
@@ -156,7 +156,7 @@ int dlink_insert_first(void *pval) {
     pnode->next       = phead->next;
     phead->next->prev = pnode;
     phead->next       = pnode;
-    // 节点个数+1
+    // 结点个数+1
     count++;
 
     return 0;
@@ -173,13 +173,13 @@ int dlink_append_last(void *pval) {
     pnode->prev       = phead->prev;
     phead->prev->next = pnode;
     phead->prev       = pnode;
-    // 节点个数+1
+    // 结点个数+1
     count++;
 
     return 0;
 };
 
-// 删除双向链表中index位置的节点,成功返回0,否则返回-1;
+// 删除双向链表中index位置的结点,成功返回0,否则返回-1;
 int dlink_delete(int index) {
     node *pindex = get_node(index);
     if(!pindex) {
@@ -190,18 +190,18 @@ int dlink_delete(int index) {
     pindex->prev->next = pindex->next;
     pindex->next->prev = pindex->prev;
     free(pindex);
-    // 节点数减1
+    // 结点数减1
     count--;
 
     return 0;
 };
 
-// 删除第一个节点
+// 删除第一个结点
 int dlink_delete_first() {
     return dlink_delete(0);
 };
 
-// 删除最后一个节点
+// 删除最后一个结点
 int dlink_delete_last() {
     return dlink_delete(count - 1);
 };

@@ -5,7 +5,7 @@
  * 用单向简单链表实现栈, 只能存储int类型
  */
 
-// 单向链表的"节点"
+// 单向链表的"结点"
 struct node {
     int val;
     struct node *next;
@@ -14,7 +14,7 @@ struct node {
 // 单向链表的表头
 static struct node *phead = NULL;
 
-// 创建节点
+// 创建结点
 static struct node* create_node(int val) {
     struct node *pnode = NULL;
     pnode = (struct node*)malloc(sizeof(struct node));

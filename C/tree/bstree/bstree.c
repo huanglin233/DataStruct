@@ -122,7 +122,7 @@ Node* bstree_predecessor(Node *node) {
     return parent;
 }
 
-// 创建二叉树结点并返回:key 结点值,parent 结点的父节点, left 结点左孩子, right 结点的右孩子
+// 创建二叉树结点并返回:key 结点值,parent 结点的父结点, left 结点左孩子, right 结点的右孩子
 static Node* create_bstree_node(Type key, Node *parent, Node *left, Node *right) {
     Node *node;
 
@@ -138,7 +138,7 @@ static Node* create_bstree_node(Type key, Node *parent, Node *left, Node *right)
     return node;
 }
 
-// 将结点插入到二叉树中: tree 二叉树根结点, z插入的结点 ,返回根节点
+// 将结点插入到二叉树中: tree 二叉树根结点, z插入的结点 ,返回根结点
 static Node* bstree_insert(BSTree tree, Node *z) {
     Node *y = NULL;
     Node *x = tree;
@@ -165,7 +165,7 @@ static Node* bstree_insert(BSTree tree, Node *z) {
     return tree;
 }
 
-// 新建结点key,并将其插入到二叉树中; tree 二叉树根节点, key 插入结点的键值;返回 根节点
+// 新建结点key,并将其插入到二叉树中; tree 二叉树根结点, key 插入结点的键值;返回 根结点
 Node* insert_bstree(BSTree tree, Type key) {
     Node *node; // 新建结点
 
@@ -246,11 +246,11 @@ void destory_bstree(BSTree tree) {
 /**
  * 打印 二叉树
  * 
- * tree       -- 二叉树的节点
- * key        -- 节点的键值 
- * direction  --  0，表示该节点是根节点;
- *               -1，表示该节点是它的父结点的左孩子;
- *                1，表示该节点是它的父结点的右孩子
+ * tree       -- 二叉树的结点
+ * key        -- 结点的键值 
+ * direction  --  0，表示该结点是根结点;
+ *               -1，表示该结点是它的父结点的左孩子;
+ *                1，表示该结点是它的父结点的右孩子
  */
 void print_bstree(BSTree tree, Type key, int direction) {
     if(tree != NULL) {

@@ -30,7 +30,7 @@ int main() {
     printf("-----树的详细信息: \n");
     print_bstree(root, root->key, 0);
 
-    printf("删除根节点: %d\n", root->key);
+    printf("删除根结点: %d\n", root->key);
     root = delete_bstree(root, root->key);
     printf("\n-----中序遍历:");
     inorder_bstree(root);
